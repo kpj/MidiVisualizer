@@ -66,7 +66,7 @@ function d2h(d) {
 	return str.substr(str.length - 2)
 }
 function getColor(note) {
-	var startColor = [0, 100, 255]; 
+	var startColor = [0, 255, 0]; 
 	var endColor = [255, 0, 0];
 
 	var step = note/100;
