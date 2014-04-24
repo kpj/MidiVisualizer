@@ -23,6 +23,10 @@ function initWebGL() {
 	controls.noPan = true;
 	controls.staticMoving = false;
 
+	var light = new THREE.DirectionalLight(0xffffff, 1);
+	light.target = new THREE.Vector3(0.8, 1, 0.5);
+	scene.add(light);
+
 	// fix camera
 	camera.position.z = 5;
 
@@ -43,10 +47,8 @@ function onRender() {
 	if(!MIDI.Player.playing)
 		return;
 
-	var speed = 0.01;
-
-	camera.position.y -= speed;
-	y_position -= speed;
+	camera.position.y -= config.speed;
+	y_position -= config.speed;
 
 	controls.target = new THREE.Vector3(0, y_position, 0);
 }
@@ -62,6 +64,11 @@ function drawOnNote(data) {
 	cube.position.y = y_position;
 
 	scene.add(cube);
+
+
+	if(scene.children.length > config.maxObjectNum) {
+		scene.remove(scene.children[0]);
+	}
 }
 
 function d2h(d) {
@@ -69,8 +76,8 @@ function d2h(d) {
 	return str.substr(str.length - 2)
 }
 function getColor(note) {
-	var startColor = [0, 255, 0]; 
-	var endColor = [255, 0, 0];
+	var startColor = config.startColor;
+	var endColor = config.endColor;
 
 	var step = note/100;
 
