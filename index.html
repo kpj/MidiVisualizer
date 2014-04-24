@@ -28,42 +28,10 @@
 	<!-- Own sources -->
 	<script src="./js/webgl.js"></script>
 	<script src="./js/midi.js"></script>
-
-	<script>
-		window.onload = function() {
-			$('#info_text').text('Initializing WebGL');
-			initWebGL();
-
-			$('#info_text').text('Loading MIDI-Plugin');
-			MIDI.loadPlugin({
-				soundfontUrl: "./libs/midi/soundfont/",
-				instrument: "acoustic_grand_piano",
-				callback: function() {
-					console.log('MIDI-Plugin loaded');
-					initListener();
-
-					$('#info_text').text('Loading track');
-					MIDI.Player.loadFile(
-						'test.mid', 
-						function() {
-							$('#info').hide();
-
-							console.log('Song loaded');
-
-							// webgl stuff
-							render();
-							for(var i = 0 ; i < 5 ; i++)
-								createCube(-10 + i*4);
-
-							MIDI.Player.start();
-						}
-					);
-				}
-			});
-		}
-	</script>
+	<script src="./js/core.js"></script>
 </head>
 <body>
+	<input type='file' id="file_upload" />
 	<div id="info">
 		<span id="info_text"></span>
 	</div>
