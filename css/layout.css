@@ -1,0 +1,25 @@
+#container { 
+	width: 100%;
+	height: 100%;
+}
+
+#info {
+	position: fixed;
+
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 15px;
+
+	top: 50%;
+	left: 50%;
+
+	width: 200px;
+	height: 100px;
+	margin: -50px 0 0 -100px;
+
+	text-align: center;
+	vertical-align: middle;
+}
+
+#info_text {
+	line-height: 100px;
+}
