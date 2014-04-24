@@ -23,10 +23,6 @@ window.onload = function() {
 
 	$('#info_text').text('Initializing WebGL');
 	initWebGL();
-	// webgl stuff
-	render();
-	for(var i = 0 ; i < 5 ; i++)
-		createCube(-10 + i*4);
 
 	$('#info_text').text('Loading MIDI-Plugin');
 	MIDI.loadPlugin({
