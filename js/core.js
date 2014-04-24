@@ -1,9 +1,32 @@
 function play(data) {
-	$('#file_upload').hide();
+	$('#info_text').text('Loading track');
+	$('#info').show();
+
+	MIDI.Player.stop();
+	MIDI.Player.loadFile(
+		data, 
+		function() {
+			$('#info').hide();
+			console.log('Song loaded');
+
+			MIDI.Player.start();
+		}
+	);
+}
+
+window.onload = function() {
+	/*
+	 * Other stuff
+	 */
+	$('#file_upload').attr('disabled', true);
 	$('#info').show();
 
 	$('#info_text').text('Initializing WebGL');
 	initWebGL();
+	// webgl stuff
+	render();
+	for(var i = 0 ; i < 5 ; i++)
+		createCube(-10 + i*4);
 
 	$('#info_text').text('Loading MIDI-Plugin');
 	MIDI.loadPlugin({
@@ -13,26 +36,11 @@ function play(data) {
 			console.log('MIDI-Plugin loaded');
 			initListener();
 
-			$('#info_text').text('Loading track');
-			MIDI.Player.loadFile(
-				data, 
-				function() {
-					$('#info').hide();
-					console.log('Song loaded');
-
-					// webgl stuff
-					render();
-					for(var i = 0 ; i < 5 ; i++)
-						createCube(-10 + i*4);
-
-					MIDI.Player.start();
-				}
-			);
+			$('#info').hide();
+			$('#file_upload').attr('disabled', false);
 		}
 	});
-}
 
-window.onload = function() {
 	/* 
 	 * Initialize file upload
 	 */
