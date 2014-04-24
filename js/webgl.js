@@ -40,6 +40,9 @@ function render() {
 }
 
 function onRender() {
+	if(!MIDI.Player.playing)
+		return;
+
 	var speed = 0.01;
 
 	camera.position.y -= speed;
