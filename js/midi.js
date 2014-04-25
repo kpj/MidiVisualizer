@@ -6,6 +6,21 @@ function initListener() {
 	);
 }
 
+function loadPlugin() {
+	MIDI.loadPlugin({
+		soundfontUrl: "./libs/midi/soundfont/",
+		instrument: "acoustic_grand_piano",
+		callback: function() {
+			console.log('MIDI-Plugin loaded');
+			initListener();
+
+			$('#info').hide();
+			$('#toggle').attr('disabled', false);
+			$('#file_upload').attr('disabled', false);
+		}
+	});
+}
+
 function play(data) {
 	$('#info_text').text('Loading track');
 	$('#info').show();

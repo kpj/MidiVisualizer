@@ -10,18 +10,7 @@ window.onload = function() {
 	initWebGL();
 
 	$('#info_text').text('Loading MIDI-Plugin');
-	MIDI.loadPlugin({
-		soundfontUrl: "./libs/midi/soundfont/",
-		instrument: "acoustic_grand_piano",
-		callback: function() {
-			console.log('MIDI-Plugin loaded');
-			initListener();
-
-			$('#info').hide();
-			$('#toggle').attr('disabled', false);
-			$('#file_upload').attr('disabled', false);
-		}
-	});
+	loadPlugin();
 
 	/* 
 	 * Initialize file upload
