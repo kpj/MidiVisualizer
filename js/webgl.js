@@ -59,7 +59,7 @@ function drawOnNote(data) {
 	});
 	var cube = new THREE.Mesh(geometry, material);
 
-	cube.position.x = -10 + data.note / 10;
+	cube.position.x = -5 + data.note / 10;
 	cube.position.y = y_position;
 
 	if(config.all_dimensions)
