@@ -60,12 +60,16 @@ function drawOnNote(data) {
 	});
 	var cube = new THREE.Mesh(geometry, material);
 
-	cube.position.x = -10 + data.note / 5;
+	cube.position.x = -10 + data.note / 10;
 	cube.position.y = y_position;
+
+	if(config.all_dimensions)
+		cube.position.z = data.velocity / 100;
 
 	scene.add(cube);
 
 
+	// delete old nodes
 	if(scene.children.length > config.maxObjectNum) {
 		scene.remove(scene.children[0]);
 	}
