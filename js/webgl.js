@@ -20,7 +20,6 @@ function initWebGL() {
 	document.getElementById('container').appendChild(renderer.domElement);
 
 	controls = new THREE.TrackballControls(camera);
-	controls.noPan = true;
 	controls.staticMoving = false;
 
 	var light = new THREE.DirectionalLight(0xffffff, 1);
