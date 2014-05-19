@@ -1,17 +1,4 @@
-window.onload = function() {
-	/*
-	 * Other stuff
-	 */
-	$('#file_upload').attr('disabled', true);
-	$('#toggle').attr('disabled', true);
-	$('#info').show();
-
-	$('#info_text').text('Initializing WebGL');
-	initWebGL();
-
-	$('#info_text').text('Loading MIDI-Plugin');
-	loadPlugin();
-
+$(function() {
 	/* 
 	 * Initialize file upload
 	 */
@@ -25,6 +12,7 @@ window.onload = function() {
 			reader.readAsDataURL(this.files[0]);
 		}
 	});
+	$('#file_upload').bootstrapFileInput();
 
 	/* 
 	 * Initialize file buttons
@@ -35,4 +23,17 @@ window.onload = function() {
 		else
 			MIDI.Player.resume();
 	});
-}
+	
+	/*
+	 * Other stuff
+	 */
+	$('#file_upload').attr('disabled', true);
+	$('#toggle').attr('disabled', true);
+	$('#info').show();
+
+	$('#info_text').text('Initializing WebGL');
+	initWebGL();
+
+	$('#info_text').text('Loading MIDI-Plugin');
+	loadPlugin();
+});
