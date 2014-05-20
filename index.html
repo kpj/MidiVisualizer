@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Wiggli</title>
+	<title>MidiVisualizer</title>
 
 	<link rel="stylesheet" type="text/css" href="./css/layout.css" />
 
@@ -30,7 +30,7 @@
 	<!-- Other dependencies -->
 	<script src="./libs/jquery.js"></script>
 	<script src="./libs/bootstrap/bootstrap.min.js"></script>
-	<script src="./libs/bootstrap/bootstrap.file-input.js"></script>
+	<script src="./libs/bootstrap/bootstrap-filestyle.min.js"></script>
 
 	<!-- Own sources -->
 	<script src="./js/config.js"></script>
@@ -40,11 +40,11 @@
 </head>
 <body>
 	<div id="header">
-		<input type="file" id="file_upload" class="btn-sm" data-filename-placement="inside" /> (upload midi)
-		<input class="btn btn-default btn-sm" type="button" id="toggle" value="Toggle Playback"/>
+		<input type="file" id="file_upload" />
+		<input class="btn btn-default btn-sm" type="button" id="toggle" value="Toggle Playback" />
 		<a data-toggle="modal" id="aboutbutton" class="btn btn-primary btn-sm" href="#aboutbox">About</a>
 		<div id="info">
-			<span id="info_text"></span>
+			<span id="info_text">Loading...</span>
 		</div>
 	</div>
 	<div id="container"></div>

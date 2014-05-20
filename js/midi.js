@@ -15,8 +15,7 @@ function loadPlugin() {
 			initListener();
 
 			$('#info').hide();
-			$('#toggle').attr('disabled', false);
-			$('#file_upload').attr('disabled', false);
+			$('#file_upload').filestyle('disabled', false)
 		}
 	});
 }
@@ -30,6 +29,7 @@ function play(data) {
 		data, 
 		function() {
 			$('#info').hide();
+			$('#toggle').attr('disabled', false);
 			console.log('Song loaded');
 
 			MIDI.Player.start();

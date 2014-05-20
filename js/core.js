@@ -12,7 +12,14 @@ $(function() {
 			reader.readAsDataURL(this.files[0]);
 		}
 	});
-	$('#file_upload').bootstrapFileInput();
+	$('#file_upload').filestyle({
+		disabled: true,
+		input: false,
+		icon: false,
+		buttonText: 'Browse',
+		size: "sm"
+	});
+	$('.bootstrap-filestyle').css('display', 'inline'); // TODO: find better solution
 
 	/* 
 	 * Initialize file buttons
