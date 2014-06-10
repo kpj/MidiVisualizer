@@ -1,4 +1,4 @@
-Wiggli
+MidiVisualizer
 =====
 
 Visualization of MIDI files using WebGl.
