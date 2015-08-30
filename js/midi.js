@@ -10,7 +10,7 @@ function loadPlugin() {
 	MIDI.loadPlugin({
 		soundfontUrl: "./libs/midi/soundfont/",
 		instrument: "acoustic_grand_piano",
-		callback: function() {
+		onsuccess: function() {
 			console.log('MIDI-Plugin loaded');
 			initListener();
 
@@ -26,7 +26,7 @@ function play(data) {
 
 	MIDI.Player.stop();
 	MIDI.Player.loadFile(
-		data, 
+		data,
 		function() {
 			$('#info').hide();
 			$('#toggle').attr('disabled', false);
